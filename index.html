@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODISK Neo-Brutalism</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo">MODISK</div>
+      <nav class="nav-links">
+        <a href="#">HOME</a>
+        <a href="index2.html">ABOUT</a>
+        <a href="./index3.html">CONTACT</a>
+        <button class="btn btn-pill">BUY NOW</button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-card">
+      <div class="hero-content">
+        <h1>WHERE ART<br>MEET</h1>
+      </div>
+      <div class="get-offer-card">
+        <h2>GET<br>OFFER</h2>
+        <div class="card-bar"></div>
+      </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="bottom-grid">
+      <div class="card service-card">
+        <h3>GRAPHIC DESIGNING</h3>
+        <button class="btn btn-pill card-btn">BUY NOW</button>
+      </div>
+
+      <div class="card service-card">
+        <h3>WEB DEVELOPMENT</h3>
+        <button class="btn btn-pill card-btn">BUY NOW</button>
+      </div>
+
+      <div class="stats-card">
+        <div class="stat-item">
+          <h2>50+</h2>
+          <p>HAPPY<br>CLIENT</p>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <h2>98%</h2>
+          <p>CLIENT<br>SATIFICIFIED</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+<style>
+    :root {
+  --coral-bg: #f27267;
+  --text-color: #f27267;
+  --card-bg: #ffffff;
+  --dark-border: #d45950;
+  --font-family: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Update body to prevent unwanted scrollbars and allow full viewport filling */
+body {
+  background-color: var(--coral-bg);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Update main-container to span full width and viewport height */
+.main-container {
+  width: 100%;
+   /* Expands wider to fill large desktop screens */
+  min-height: calc(100vh - 40px); /* Account for body padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Allow hero card to grow and fill available vertical space */
+.hero-card {
+  background: var(--card-bg);
+  border: 4px solid var(--dark-border);
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1; /* Key change: expands hero vertically */
+  min-height: 280px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scale hero text up slightly for larger viewports */
+.hero-content h1 {
+  color: var(--text-color);
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+}
+
+/* Responsive grid fallback for smaller screens */
+@media (max-width: 768px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+/* ================= NAV BAR ================= */
+.navbar {
+  background: var(--card-bg);
+  border: 4px solid var(--dark-border);
+  border-radius: 30px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text-color);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 800;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+  color: #b83c34;
+}
+
+/* ================= BUTTONS & HOVER ================= */
+.btn {
+  background-color: var(--coral-bg);
+  color: white;
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-pill {
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-color: #e0554a;
+  transform: scale(1.08);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* ================= HERO SECTION ================= */
+.hero-card {
+  background: var(--card-bg);
+  border: 4px solid var(--dark-border);
+  border-radius: 30px;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 220px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.hero-content h1 {
+  color: var(--text-color);
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.get-offer-card {
+  border: 5px solid var(--coral-bg);
+  border-radius: 24px;
+  padding: 20px 15px 12px 15px;
+  text-align: center;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.get-offer-card:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.get-offer-card h2 {
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.card-bar {
+  width: 100%;
+  height: 12px;
+  border: 3px solid var(--coral-bg);
+  border-radius: 10px;
+}
+
+/* ================= BOTTOM GRID ================= */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 4px solid var(--dark-border);
+  border-radius: 28px;
+  padding: 20px;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: var(--text-color);
+  font-size: 13px;
+}
+
+.card-btn {
+  align-self: flex-end;
+}
+
+/* ================= STATS CARD ================= */
+.stats-card {
+  background-color: var(--coral-bg);
+  border: 4px solid var(--card-bg);
+  border-radius: 28px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-item h2 {
+  font-size: 24px;
+}
+
+.stat-item p {
+  font-size: 10px;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.divider {
+  width: 2px;
+  height: 80%;
+  background-color: white;
+}
+</style>
+</body>
+</html>
