@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODISK Neo-Brutalism Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral-bg: #f27267;
+      --text-color: #f27267;
+      --card-bg: #ffffff;
+      --dark-border: #d45950;
+      --font-family: 'Orbitron', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--coral-bg);
+      font-family: var(--font-family);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Full screen wrapper */
+    .main-container {
+      width: 100%;
+      min-height: calc(100vh - 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      background: var(--card-bg);
+      border: 4px solid var(--dark-border);
+      border-radius: 35px;
+      padding: 12px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-color);
+      letter-spacing: 1.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 800;
+      font-size: 14px;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+      color: #b83c34;
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      background-color: var(--coral-bg);
+      color: white;
+      border: none;
+      font-family: var(--font-family);
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-pill {
+      border-radius: 20px;
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background-color: #e0554a;
+      transform: scale(1.05);
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    /* ================= GRID CONTENT AREA ================= */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      grid-template-rows: minmax(220px, 1fr) auto;
+      gap: 16px;
+      flex: 1;
+    }
+
+    /* Outer cards base styling */
+    .card {
+      background: var(--card-bg);
+      border: 4px solid var(--dark-border);
+      border-radius: 35px;
+      padding: 24px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ================= HERO CARD ================= */
+    .hero-card {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-content h1 {
+      color: var(--text-color);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+    }
+
+    .get-offer-card {
+      border: 4px solid var(--coral-bg);
+      border-radius: 24px;
+      padding: 16px 12px 10px 12px;
+      text-align: center;
+      width: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .get-offer-card:hover {
+      transform: rotate(-3deg) scale(1.05);
+    }
+
+    .get-offer-card h2 {
+      color: var(--text-color);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .card-bar {
+      width: 100%;
+      height: 12px;
+      border: 3px solid var(--coral-bg);
+      border-radius: 10px;
+    }
+
+    /* ================= MISSION CARD (RIGHT SIDEBAR) ================= */
+    .mission-card {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .mission-card h2 {
+      color: var(--text-color);
+      font-size: clamp(20px, 2.5vw, 26px);
+      letter-spacing: 0.5px;
+    }
+
+    .mission-card p {
+      color: var(--text-color);
+      font-size: 10px;
+      line-height: 1.5;
+      font-weight: 800;
+    }
+
+    /* ================= ABOUT CARD ================= */
+    .about-card {
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .about-badge {
+      border: 3px solid var(--coral-bg);
+      border-radius: 18px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-badge h2 {
+      color: var(--text-color);
+      font-size: 20px;
+    }
+
+    .about-text-box {
+      border: 3px solid var(--coral-bg);
+      border-radius: 24px;
+      padding: 16px;
+      flex: 1;
+    }
+
+    .about-text-box p {
+      color: var(--text-color);
+      font-size: 9.5px;
+      line-height: 1.5;
+      font-weight: 800;
+    }
+
+    /* ================= STATS CARD ================= */
+    .stats-card {
+      grid-column: 2;
+      grid-row: 2;
+      background-color: var(--coral-bg);
+      border: 4px solid var(--card-bg);
+      border-radius: 35px;
+      padding: 20px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item h2 {
+      font-size: clamp(22px, 3vw, 28px);
+    }
+
+    .stat-item p {
+      font-size: 9px;
+      line-height: 1.3;
+      margin-top: 4px;
+      font-weight: 800;
+    }
+
+    .divider {
+      width: 2px;
+      height: 70%;
+      background-color: white;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 850px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .mission-card {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .about-card {
+        grid-column: 1;
+        grid-row: auto;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stats-card {
+        grid-column: 1;
+        grid-row: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo">MODISK</div>
+      <nav class="nav-links">
+        <a href="./index.html">HOME</a>
+        <a href="./index2.html">ABOUT</a>
+        <a href="./index3.html">CONTACT</a>
+        <button class="btn btn-pill" id="buyBtn">BUY NOW</button>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-grid">
+      
+      <!-- Hero Box -->
+      <section class="card hero-card">
+        <div class="hero-content">
+          <h1>WHERE ART<br>MEET</h1>
+        </div>
+        <div class="get-offer-card" id="offerCard">
+          <h2>GET<br>OFFER</h2>
+          <div class="card-bar"></div>
+        </div>
+      </section>
+
+      <!-- Our Mission Card (Right Sidebar) -->
+      <section class="card mission-card">
+        <h2>OUR MISSION</h2>
+        <p>
+          We combine creative graphic design with modern web development to create powerful, professional, and engaging digital experiences. From eye-catching logos, branding, social media graphics, and visual content to responsive websites and interactive web applications, our goal is to turn ideas into high-quality digital solutions. We focus on clean design, smooth performance, responsive layouts, and user-friendly experiences that help businesses build a strong online presence.
+        </p>
+        <p>
+          We combine creative graphic design with modern web development to create powerful, professional, and engaging digital experiences. From eye-catching logos, branding, social media graphics, and visual content to responsive websites and interactive web applications, our goal is to turn ideas into high-quality digital solutions. We focus on clean design, smooth performance, responsive layouts, and user-friendly experiences that help businesses build a strong online presence.
+        </p>
+      </section>
+
+      <!-- About Section -->
+      <section class="card about-card">
+        <div class="about-badge">
+          <h2>ABOUT</h2>
+        </div>
+        <div class="about-text-box">
+          <p>
+            We combine creative graphic design with modern web development to create powerful, professional, and engaging digital experiences. From eye-catching logos, branding, social media graphics, and visual content to responsive websites and interactive web applications, our goal is to turn ideas into high-quality digital solutions. We focus on clean design, smooth performance, responsive layouts, and user-friendly experiences that help businesses build a strong online presence.
+          </p>
+        </div>
+      </section>
+
+      <!-- Stats Card -->
+      <section class="stats-card">
+        <div class="stat-item">
+          <h2>50+</h2>
+          <p>HAPPY<br>CLIENT</p>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <h2>98%</h2>
+          <p>CLIENT<br>SATIFICIFIED</p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript Integration -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buyBtn = document.getElementById('buyBtn');
+      const offerCard = document.getElementById('offerCard');
+
+      buyBtn.addEventListener('click', () => {
+        alert('Thank you for choosing MODISK! Order page loading...');
+      });
+
+      offerCard.addEventListener('click', () => {
+        alert('Special Offer Unlocked! Get 20% off on Web Development Services.');
+      });
+    });
+  </script>
+
+</body>
+</html>
