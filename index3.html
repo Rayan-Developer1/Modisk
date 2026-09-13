@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODISK Medium View</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral-bg: #f27267;
+      --text-color: #f27267;
+      --card-bg: #ffffff;
+      --dark-border: #d45950;
+      --font-family: 'Orbitron', sans-serif;
+    }
+   * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--coral-bg);
+      font-family: var(--font-family);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 220PX;
+      padding: 16px;
+    }
+
+    .main-container {
+      width: 100%;
+      height: 400%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      background: var(--card-bg);
+      border: 4px solid var(--dark-border);
+      border-radius: 32px;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px; /* MEDIUM LOGO */
+      font-weight: 900;
+      color: var(--text-color);
+      letter-spacing: 1.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 800;
+      font-size: 13px; /* MEDIUM NAV LINKS */
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      background-color: var(--coral-bg);
+      color: white;
+      border: none;
+      font-family: var(--font-family);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-pill {
+      border-radius: 24px;
+      padding: 10px 20px;
+      font-size: 13px; /* MEDIUM BUTTON TEXT */
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    /* ================= MAP BANNER ================= */
+    .map-banner {
+      width: 100%;
+      height: 430px; /* MEDIUM HEIGHT */
+      border: 4px solid var(--dark-border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .map-banner iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ================= SERVICES GRID ================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 4px solid var(--dark-border);
+      border-radius: 26px;
+      padding: 20px;
+      min-height: 270px; /* MEDIUM CARD DIMENSIONS */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card h3 {
+      color: var(--text-color);
+      font-size: 14px; /* MEDIUM TITLE FONT */
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .card-btn {
+      align-self: flex-end;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 8px;
+    }
+
+    .footer-logo {
+      font-size: 26px; /* MEDIUM FOOTER LOGO */
+      font-weight: 900;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 800;
+      font-size: 13px; /* MEDIUM FOOTER LINKS */
+    }
+
+    /* ================= MOBILE OPTIMIZATIONS (UNDER 768px) ================= */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px 10px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 24px;
+        padding: 14px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .btn-pill {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 14px;
+      }
+
+      .service-card {
+        min-height: 140px; /* MEDIUM CARD HEIGHT ON MOBILE */
+        padding: 18px;
+      }
+
+      .service-card h3 {
+        font-size: 14px;
+      }
+
+      .map-banner {
+        height: 200px; /* MEDIUM MAP BANNER ON MOBILE */
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+
+      .footer-links a {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo">MODISK</div>
+      <nav class="nav-links">
+        <a href="./index.html">HOME</a>
+        <a href="./index2.html">ABOUT</a>
+        <a href="./index3.html">CONTACT</a>
+        <button class="btn btn-pill buy-btn">BUY NOW</button>
+      </nav>
+    </header>
+
+    <!-- Map Banner -->
+    <section class="map-banner">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.25280006547!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- Services Grid (Stacks on Mobile) -->
+    <section class="services-grid">
+      
+      <div class="service-card">
+        <h3>OFFSET PRINTING</h3>
+        <button class="btn btn-pill card-btn buy-btn">BUY NOW</button>
+      </div>
+
+      <div class="service-card">
+        <h3>RESTURANT PRODUCT</h3>
+        <button class="btn btn-pill card-btn buy-btn">BUY NOW</button>
+      </div>
+
+      <div class="service-card">
+        <h3>SIGNAGES</h3>
+        <button class="btn btn-pill card-btn buy-btn">BUY NOW</button>
+      </div>
+
+      <div class="service-card">
+        <h3>SHIRT PRINTING</h3>
+        <button class="btn btn-pill card-btn buy-btn">BUY NOW</button>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">MODISK</div>
+      <nav class="footer-links">
+        <a href="./index.html">HOME</a>
+        <a href="./index2.html">ABOUT</a>
+        <a href="./index3.html">CONTACT</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buyButtons = document.querySelectorAll('.buy-btn');
+      buyButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.service-card');
+          const title = card ? card.querySelector('h3').innerText : 'MODISK Service';
+          alert(`Selected: ${title}\nRedirecting to checkout...`);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
